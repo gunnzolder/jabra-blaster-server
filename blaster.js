@@ -4,8 +4,8 @@ var request = require('request'),
     eventsLib = require('./config/events.json'),
     headersLib = require('./config/headers.json'),
 
-    url = 'http://jabra-place.dev/jabra-faker-test.php';
-    //url = 'http://gnlogging.azurewebsites.net/api/logging';
+    //url = 'http://jabra-place.dev/jabra-faker-test.php';
+    url = 'http://gnlogging.azurewebsites.net/api/logging';
 
 var blaster = {
     runInLimitedTime : runInLimitedTime,
