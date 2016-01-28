@@ -3,7 +3,6 @@ var http = require('http').Server(app);
 
 var blaster = require('./blaster');
 
-
 app.get('/', function(req, res){
 
     console.log(req.query);

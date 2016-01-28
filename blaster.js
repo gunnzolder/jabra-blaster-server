@@ -4,6 +4,8 @@ var request = require('request'),
     eventsLib = require('./config/events.json'),
     headersLib = require('./config/headers.json');
 
+////////////////////////////////////////////////////////
+
 var blaster = {
     runInLimitedTime : runInLimitedTime,
     sendPieceData : sendPieceData
@@ -11,6 +13,7 @@ var blaster = {
 
 module.exports = blaster;
 
+////////////////////////////////////////////////////////
 
 function runInLimitedTime(seconds, url) {
 
@@ -29,13 +32,9 @@ function runInLimitedTime(seconds, url) {
 
 }
 
+function sendPieceData(url, events, headers) {
 
-
-
-
-function sendPieceData(url, events, headers, i) {
-
-    if(url == 'http://gnlogging.azurewebsites.net/api/logging') {
+    if(url.indexOf('azurewebsites') > -1) {
         headers["Content-Type"] = "application/json";
         events = {"Events":events};
     } else {
@@ -44,7 +43,7 @@ function sendPieceData(url, events, headers, i) {
     }
 
     var options = {
-        uri: 'http://gnlogging.azurewebsites.net/api/logging',
+        uri: url,
         method: 'POST',
         json: events
     };
@@ -54,4 +53,3 @@ function sendPieceData(url, events, headers, i) {
         //console.log(response.statusMessage);
     });
 }
-
