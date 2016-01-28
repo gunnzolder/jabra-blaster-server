@@ -2,10 +2,7 @@ var request = require('request'),
     chance = require('./mixins.chance'),
 
     eventsLib = require('./config/events.json'),
-    headersLib = require('./config/headers.json'),
-
-    //url = 'http://jabra-place.dev/jabra-faker-test.php';
-    url = 'http://gnlogging.azurewebsites.net/api/logging';
+    headersLib = require('./config/headers.json');
 
 var blaster = {
     runInLimitedTime : runInLimitedTime,
@@ -15,7 +12,7 @@ var blaster = {
 module.exports = blaster;
 
 
-function runInLimitedTime(seconds) {
+function runInLimitedTime(seconds, url) {
 
     var timeout = seconds*1000;
         requestsSent = 0;

@@ -13,7 +13,8 @@ app.get('/', function(req, res){
         if(!isNaN(req.query.seconds)) {
 
             var seconds = req.query.seconds;
-            blaster.runInLimitedTime(seconds);
+            var url = req.query.url;
+            blaster.runInLimitedTime(seconds, url);
             res.send(seconds);
 
         } else { res.send("Not a valid query: "+req.query.seconds);}
