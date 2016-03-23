@@ -27,7 +27,7 @@ chance.mixin({
 chance.mixin({
     "DataPiece": function (availableEvents) {
         var data = [];
-        for (var i = chance.d10(); i >= 0; --i) {
+        for (var i = chance.natural({min: 1, max: 10}); i >= 0; --i) {
             data.push(chance.Event(availableEvents))
         }
         return data

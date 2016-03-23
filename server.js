@@ -14,7 +14,7 @@ app.get('/', function(req, res){
             var seconds = req.query.seconds;
             var url = req.query.url;
             blaster.runInLimitedTime(seconds, url);
-            res.send(seconds);
+            res.send("Receieved a request for "+seconds+" seconds. URL for queries: "+url);
 
         } else { res.send("Not a valid query: "+req.query.seconds);}
 
